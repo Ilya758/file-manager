@@ -30,3 +30,7 @@ export const ZipEnum = {
   compress: 'compress',
   decompress: 'decompress',
 };
+
+export const ExitEnum = {
+  exit: 'exit',
+};

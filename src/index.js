@@ -9,6 +9,7 @@ import {
   OSEnum,
   HashEnum,
   ZipEnum,
+  ExitEnum,
 } from './constants.js';
 import LoggerService from './services/logger.js';
 import CRUDService from './services/crud.js';
@@ -161,7 +162,7 @@ const main = () => {
         }
 
         switch (primaryArg.replace('--', '')) {
-          case OSEnum.EOL.toLowerCase(): {
+          case OSEnum.EOL: {
             OSService.getEOL();
 
             break;
@@ -229,6 +230,14 @@ const main = () => {
         ZipService.decompress(primaryArg, secondaryArg, currentDirPath);
 
         break;
+      }
+
+      case ExitEnum.exit: {
+        LoggerService.printByArg(
+          `Thank you for using File Manager, ${username}!`,
+        );
+
+        process.exit();
       }
 
       default: {
